@@ -64,9 +64,9 @@ const images = [
   },
 ];
 
-const gallery = document.querySelector(".gallery");
+const gallery = document.querySelector('.gallery');
 
-const img = images.map(({ preview, original, description }) => `
+const markup = images.map(({ preview, original, description }) => `
     <li class="gallery-item">
         <a class="gallery-link" href="${original}">
             <img
@@ -81,7 +81,7 @@ const img = images.map(({ preview, original, description }) => `
 )
 .join('');
 
-gallery.insertAdjacentHTML('beforeend', img);
+gallery.insertAdjacentHTML('beforeend', markup);
 
 gallery.addEventListener('click', event => {
     event.preventDefault();
@@ -90,6 +90,6 @@ gallery.addEventListener('click', event => {
         return;
     }
 
-    const instance = basicLightbox.create(`<img src="${event.target.dataset.sourse}" alt="${event.target.alt}">`);
+    const instance = basicLightbox.create(`<img src="${event.target.dataset.source}" alt="${event.target.alt}">`);
     instance.show();
 });
